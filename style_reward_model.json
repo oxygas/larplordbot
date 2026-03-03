@@ -1,0 +1,53 @@
+{
+  "version": 2,
+  "learning_rate": 0.06,
+  "bias": -1.350893,
+  "weights": {
+    "ai_phrase": 2.786,
+    "formality": 1.34325,
+    "avg_sentence": 1.04444,
+    "long_word_ratio": 0.994005,
+    "punct_burst": 0.695306,
+    "ellipsis": 0.44775,
+    "caps_ratio": 0.54725,
+    "contraction": -1.0945,
+    "slang": -0.8955,
+    "greeting": 0.4975,
+    "closing": 0.64675,
+    "repetition": 0.8955,
+    "unique_ratio": -0.600582,
+    "emoji_ratio": -0.398,
+    "newline_ratio": 0.398,
+    "number_ratio": 0.2985,
+    "quote_ratio": 0.44775
+  },
+  "strategy_stats": {
+    "identity": {
+      "count": 0,
+      "mean_reward": 0.0
+    },
+    "casualize": {
+      "count": 0,
+      "mean_reward": 0.0
+    },
+    "trim_fluff": {
+      "count": 0,
+      "mean_reward": 0.0
+    },
+    "shorten": {
+      "count": 0,
+      "mean_reward": 0.0
+    },
+    "lowercase": {
+      "count": 1,
+      "mean_reward": 0.79
+    },
+    "drop_greeting": {
+      "count": 0,
+      "mean_reward": 0.0
+    }
+  },
+  "generation_count": 1,
+  "running_score": 2.1,
+  "last_score": 2.1
+}

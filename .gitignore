@@ -1,0 +1,21 @@
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Logs
+*.log
+
+# Secrets
+.env
+.aider*
+
+.gemini/
+gha-creds-*.json
+  
+.git\ copy/ 
