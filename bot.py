@@ -2668,17 +2668,6 @@ class WebhookBot(commands.Bot):
                     f"User {user} unjailed by {interaction.user} - restored {len(restored_roles)} roles"
                 )
 
-            except discord.Forbidden:
-                await interaction.response.send_message(
-                    "❌ I don't have permission to manage roles for this user.",
-                    ephemeral=True,
-                )
-            except Exception as e:
-                logger.error(f"Error in unjailrole command: {e}")
-                await interaction.response.send_message(
-                    "❌ Failed to unjail user. Check logs for details.", ephemeral=True
-                )
-
         @self.tree.command(description="Set the punish role for this server")
         @discord.app_commands.describe(role="The role to use for jailing users")
         @discord.app_commands.default_permissions(manage_guild=True)
@@ -3212,18 +3201,8 @@ class WebhookBot(commands.Bot):
             else:
                 global_synced = await self.tree.sync()
                 logger.info(f"Synced {len(global_synced)} slash commands globally")
-                # Also sync each connected guild for immediate availability.
-                for guild in self.guilds:
-                    try:
-                        self.tree.copy_global_to(guild=guild)
-                        guild_synced = await self.tree.sync(guild=guild)
-                        logger.info(
-                            f"Synced {len(guild_synced)} slash commands to guild {guild.id} for immediate visibility"
-                        )
-                    except Exception as guild_sync_error:
-                        logger.warning(
-                            f"Failed guild-specific sync for {guild.id}: {guild_sync_error}"
-                        )
+                # Guild-specific sync removed to avoid rate limiting
+                # Commands will be available globally within 1 hour
         except Exception as e:
             logger.error(f"Failed to sync commands: {e}")
 
